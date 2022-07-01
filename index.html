@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <header class="header py-3 bg-secondary bg-opacity-10">
+   <div class="container">
+    <div class="header__box d-flex justify-content-between align-items-center">
+
+      <a href="./index.html" class="header__link ">
+        <img src="./images/logo.jpg" alt="films logo" class="header__img" width="200" height="100"></a>
+
+      <form class="form  w-50 d-flex justify-content-between  align-items-center">
+
+        <label class=" form-label w-50 mt-2  ">
+          <input type="search" class=" form-control js-search position-relative" placeholder="Search for a name">
+        </label>
+
+        <select class=" form-select js-select w-50 ms-2 " id="search">
+          <option selected>Filter by genres</option>
+        </select>
+
+      </form>
+
+    </div>
+  </div>
+</header>
+
+
+  <section class="film">
+  <div class="container">
+    <h1 class="film__title text-center my-2 text-danger">Film Album</h1>
+    <ul class="film__list d-flex justify-content-between flex-wrap gap-3 my-3">
+
+    </ul>
+  </div>
+  </section>
+
+
+   <script src="./js/films.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
