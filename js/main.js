@@ -5,8 +5,10 @@ let elSort = document.querySelector(".js-sort");
 let elModal = document.querySelector('.modals');
 let elBookmarkList = document.querySelector(".bookmark-list");
 
-let bookmark = [];
+const localFilm = JSON.parse(window.localStorage.getItem("bookmark"))
 
+let bookmark = localFilm || [];
+renderBookmark(bookmark, elBookmarkList);
 
 function renderBookmark(arr, element) {
 
@@ -175,6 +177,7 @@ renderType(films, elSelect);
 
 elList.addEventListener("click", evt => {
   const bookmarkBtn = evt.target.matches(".bookmark-btn");
+  window.localStorage.setItem("bookmark" , JSON.stringify(bookmark))
   if (bookmarkBtn) {
 
     const filmId = evt.target.dataset.filmId;
@@ -185,7 +188,6 @@ elList.addEventListener("click", evt => {
       renderBookmark(bookmark, elBookmarkList);
     }
   }
-  window.localStorage.setItem("bookmark" , JSON.stringify(bookmark))
 });
 
 
