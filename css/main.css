@@ -1,0 +1,89 @@
+body{
+  background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.header{
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 5px #c92e2e;
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.film{
+  margin-top: 130px;
+}
+
+.film__box{
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+
+.bookmark-item{
+  align-items: center;
+  border: 3px solid #000;
+  border-radius: 25px;
+  padding: 10px 25px;
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+
+.delete-bookmark-btn{
+  position: absolute;
+  right: -80px;
+  top: 5px;
+  border: 3px solid #000;
+  border-radius: 25px;
+  background: transparent;
+}
+
+.card{
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  transition-duration: .3s;
+
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+
+
+.modals{
+  width: 450px;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80px;
+  margin: 0 auto;
+}
+
+.modals .card{
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 500px;
+}
+
+.show{
+  display: block;
+}
+
+.modals .card .btn{
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.modals .card .card-text{
+  color: #000;
+}
