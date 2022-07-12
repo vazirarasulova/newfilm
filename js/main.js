@@ -49,11 +49,9 @@ elBookmarkList.addEventListener("click", evt => {
     bookmark.splice(findBookmarkFilmId, 1);
 
     renderBookmark(bookmark, elBookmarkList);
-    window.localStorage.setItem("deletedFilm" , JSON.stringify(deletedFilmArr));
+    window.localStorage.setItem("deletedFilm" , JSON.stringify(deleteBtnId));
   }
 
-  window.localStorage.setItem("film" , JSON.stringify(films))
-    window.localStorage.setItem("deletedFilm" , JSON.stringify(deletedFilmArr))
 })
 
 
