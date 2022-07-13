@@ -11,9 +11,7 @@ let bookmark = localFilm || [];
 renderBookmark(bookmark, elBookmarkList);
 
 function renderBookmark(arr, element) {
-
   element.innerHTML = "";
-
   arr.forEach(e => {
     let newItem = document.createElement("li");
     let newDeleteBtn = document.createElement("button");
@@ -23,22 +21,17 @@ function renderBookmark(arr, element) {
 
     newItem.classList.add("bookmark-item")
     newDeleteBtn.classList.add("delete-bookmark-btn");
-    
+
     newDeleteBtn.type = "button";
     newDeleteBtn.dataset.filmId = e.id;
 
     newItem.appendChild(newDeleteBtn);
 
     element.appendChild(newItem);
-
-    
-
   });
-
 }
 
 elBookmarkList.addEventListener("click", evt => {
-  
   const isDeleteBtn = evt.target.matches(".delete-bookmark-btn");
 
   if (isDeleteBtn) {
@@ -47,11 +40,9 @@ elBookmarkList.addEventListener("click", evt => {
     const findBookmarkFilmId = bookmark.findIndex(e => e.id == deleteBtnId);
 
     bookmark.splice(findBookmarkFilmId, 1);
-
+    window.localStorage.setItem("bookmark", JSON.stringify(bookmark))
     renderBookmark(bookmark, elBookmarkList);
-    window.localStorage.setItem("deletedFilm" , JSON.stringify(deleteBtnId));
   }
-
 })
 
 
@@ -91,7 +82,7 @@ function func(arr) {
 
     newHeading.textContent = film.title;
     newText.textContent =
-    film.overview.split(" ").slice(0, 10).join(" ") + "...";
+      film.overview.split(" ").slice(0, 10).join(" ") + "...";
     newGenres.textContent = film.genres.join(", ");
     elBtnInfo.textContent = 'More'
     elBtnInfo.dataset.idNumber = film.id;
@@ -112,8 +103,7 @@ function func(arr) {
     newTime.setAttribute("datetime", "2022-03-12");
     newSublist.setAttribute("class", "card-list list-unstyled");
 
-
-    elBtnInfo.classList.add('btn', 'btn-light');
+    elBtnInfo.classList.add('btn', 'btn-info');
     newBookmarkBtn.classList.add("bookmark-btn");
     newBookmarkBtn.textContent = "Bookmark";
     newBookmarkBtn.dataset.filmId = film.id;
@@ -175,14 +165,14 @@ renderType(films, elSelect);
 
 elList.addEventListener("click", evt => {
   const bookmarkBtn = evt.target.matches(".bookmark-btn");
-  window.localStorage.setItem("bookmark" , JSON.stringify(bookmark))
   if (bookmarkBtn) {
-
+    
     const filmId = evt.target.dataset.filmId;
     const findFilm = films.find(e => e.id == filmId);
-
+    
     if (!bookmark.includes(findFilm)) {
       bookmark.push(findFilm);
+      window.localStorage.setItem("bookmark", JSON.stringify(bookmark))
       renderBookmark(bookmark, elBookmarkList);
     }
   }
@@ -231,6 +221,7 @@ elList.addEventListener('click', function (e) {
 
 document.body.addEventListener('click', function (e) {
   let btnDelete = e.target.matches('.btn-danger');
+
   if (btnDelete) {
     let btnId = e.target.dataset.idNumber;
     let btnClose = bookmark.findIndex(a => a.id == btnId);
